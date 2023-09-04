@@ -1,5 +1,4 @@
 export class Item {
-
     [x: string]: any;
     constructor(
        public itemid:number,

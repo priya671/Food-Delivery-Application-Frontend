@@ -1,24 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Customer } from '../component/register/register.component';
+import { Customer } from '../component/homePage/register/register.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
+  baseUrl:string="http://localhost:9999";
   constructor(private http:HttpClient) { }
 
   addCustomer(customer:Customer){
-    return this.http.post<Customer>(`http://localhost:9999/saveCustomer`,customer);
+    return this.http.post<Customer>(`${this.baseUrl}/saveCustomer`,customer);
   }
 
-  
-  // getCustomerByEmail(customeremail:string,password:string){
-  //   return this.http.get<Customer>(`http://localhost:9999/getCustomerByEmail/${customeremail}/${password}`);
-  // }
-
   getcustomerByEmail1(customeremail:string,password:string){
-    return this.http.get<Customer>(`http://localhost:9999/getCustomerByEmail/${customeremail}/${password}`);
+    return this.http.get<Customer>(`${this.baseUrl}/getCustomerByEmail/${customeremail}/${password}`);
   }
 }

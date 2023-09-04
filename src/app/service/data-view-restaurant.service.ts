@@ -5,9 +5,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataViewRestaurantService {
+  
+  baseUrl:string="http://localhost:9999";
   constructor(private http: HttpClient) {}
 
   addRestaurant(restaurant: any) {
-    return this.http.post('http://localhost:9999/saveRestaurant', restaurant);
+    return this.http.post(`${this.baseUrl}/saveRestaurant`, restaurant);
   }
 }

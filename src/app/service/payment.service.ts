@@ -8,6 +8,5 @@ export class PaymentService {
   constructor() { }
 
   ValidPayment(){
-
   }
 }

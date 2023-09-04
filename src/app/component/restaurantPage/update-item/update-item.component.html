@@ -1,0 +1,58 @@
+<app-menu></app-menu>
+<div class="bg-img">
+    <div class="content">
+        <header>Update Item </header>
+        <form (ngSubmit)="updateItem()" #itemForm="ngForm">
+
+            <div class="form-group">
+                <label for="itemname" class="control-label">Item Name:</label>
+                <input type="text" required placeholder="Enter Item name" name="itemname" [(ngModel)]="item.itemname"
+                    #itemname="ngModel" pattern="[a-zA-Z][a-zA-Z ]+$" required>
+            </div>
+            <span class="text-danger"
+                *ngIf="(itemname.touched || itemForm.submitted) && itemname.errors?.['required']">
+                This field required
+            </span>
+            <span class="text-danger" *ngIf="itemname.touched && itemname.errors?.['pattern']">
+                This field required
+
+            </span>
+            <br>
+
+            <div class="form-group">
+                <label for="itemcost" class="control-label">Item Cost:</label> <br>
+                <input type="number" min="1" max="2000" minlength="1" maxlength="4" style="width: 170px;" class="password" required placeholder="Enter Cost of Item" name="itemcost"
+                [(ngModel)]="item.itemcost" #itemcost="ngModel" required>
+            </div>
+
+            <span class="text-danger"
+                *ngIf="(itemcost.touched || itemForm.submitted) && itemcost.errors?.['required']">
+                This field required
+            </span>
+            <span class="text-danger" *ngIf="itemcost.touched && itemcost.errors?.['pattern']">
+                This field required
+            </span>
+            <br>
+
+            <div class="form-group">
+                    <mat-radio-group style="float: left;clear: none; display: block; padding: 0px 1em 0px 8px;" aria-label="Select an option" class="radiolabel" [(ngModel)]="item.itemstatus" #itemstatus="ngModel" name="itemstatus">Item Status: <br>
+                        <mat-radio-button style="float: left; clear: none; margin: 2px 0 0 2px;" value="Available" class="radiovalue" aria-checked="true">  <div style="color: white;">Available</div></mat-radio-button>
+                        <mat-radio-button style="float: left; clear: none; margin: 2px 0 0 2px;" value="Not Available" class="radiovalue"> <div style="color: white;">Not Available</div></mat-radio-button>
+                      </mat-radio-group>
+                      
+            </div>
+
+            <span class="text-danger"
+                *ngIf="(itemstatus.touched || itemForm.submitted) && itemstatus.errors?.['required']">
+                This field required
+            </span>
+            <span class="text-danger" *ngIf="itemstatus.touched && itemstatus.errors?.['pattern']">
+                This field required
+            </span>
+
+            <br>
+        
+            <button type="submit" [disabled]="!itemForm.valid" class="btn btn-danger">Update Item</button> 
+        </form>
+    </div>
+</div>

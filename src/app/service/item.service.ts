@@ -6,25 +6,26 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ItemService {
-
+  
+  baseUrl:string="http://localhost:9999";
   constructor(private http:HttpClient) { }
   retriveAllItem(){
-    return this.http.get<Item[]>(`http://localhost:9999/getAllItems`);
+    return this.http.get<Item[]>(`${this.baseUrl}/getAllItems`);
   }
 
   getItemByRestId(id:number){
-    return this.http.get<Item[]>(`http://localhost:9999/getItemByRestId/${id}`);
+    return this.http.get<Item[]>(`${this.baseUrl}/getItemByRestId/${id}`);
   }
 
   getItemById(id:number){
-    return this.http.get<Item[]>(`http://localhost:9999/getItemById/${id}`); 
+    return this.http.get<Item[]>(`${this.baseUrl}/getItemById/${id}`); 
 
   }
   addItemToResById(id:Number,item:Item){
-      return this.http.post<Item[]>(`http://localhost:9999/saveItemByRestId/${id}`,item);
+      return this.http.post<Item[]>(`${this.baseUrl}/saveItemByRestId/${id}`,item);
     }
 
   assignItemToRestById(restId:number,itemId:number){
-    return this.http.get<Item[]>(`http://localhost:9999/itemAssignedRestaurant/item/${itemId}/restaurant/${restId}`);
+    return this.http.get<Item[]>(`${this.baseUrl}/itemAssignedRestaurant/item/${itemId}/restaurant/${restId}`);
   }
 }

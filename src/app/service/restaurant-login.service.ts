@@ -6,17 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RestaurantLoginService {
+
+  baseUrl:string="http://localhost:9999";
   saveRestaurant(restaurant: { restloginname: string | null | undefined; restloginemail: string | null | undefined; restloginmobilenumber: string | null | undefined; password: string | null | undefined; }) {
     throw new Error('Method not implemented.');
   }
   constructor(private http: HttpClient) {}
-
-  // addRestaurant(restaurantLogin: RestaurantRegistration): Observable<RestaurantRegistration> {
-  //   return this.http.post<RestaurantRegistration>(`http://localhost:9999/saveRestaurantRegistration`, restaurantLogin);
-  // }
-
   getResaturantLoginByEmail(email: string, password: string): Observable<RestaurantRegistration> {
-    return this.http.get<RestaurantRegistration>(`http://localhost:9999/getRestaurantByEmail/${email}/${password}`);
+    return this.http.get<RestaurantRegistration>(`${this.baseUrl}/getRestaurantByEmail/${email}/${password}`);
   }
 }
 export class RestaurantRegistration {

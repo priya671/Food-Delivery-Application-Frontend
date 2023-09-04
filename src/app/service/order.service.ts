@@ -12,8 +12,8 @@ export class OrderService {
     private http:HttpClient
   ) { }
 
-saveOrder(custId:number,restId:number,itemId:number,cartId:number,intitalQuantity:number){
-  return this.http.get<Order>(`${this.baseUrl}/saveOrder/customerid/${custId}/restid/${restId}/itemid/${itemId}/cartid/${cartId}/quantity/${intitalQuantity}`)
+saveOrder(custId:number,restId:number,itemId:number,intitalQuantity:number){
+  return this.http.get<Order>(`${this.baseUrl}/saveOrder/customerid/${custId}/restid/${restId}/itemid/${itemId}/quantity/${intitalQuantity}`)
 }
 
 getOrderByRestID(id:number){
@@ -25,7 +25,7 @@ getOrderByCustomerID(id:number){
 }
 
 getOrderByCustomerIdAndStatusUnpaid(custId:number){
-  return this.http.get<Order>(`${this.baseUrl}/getOrderByCustomerIdAndStatusUnpaid/${custId}`);
+  return this.http.get<Order[]>(`${this.baseUrl}/getOrderByCustomerIdAndStatusUnpaid/${custId}`);
 }
 
 getOrderByCustomerIdAndStatusPaid(custId:number){

@@ -1,30 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './component/login/login.component';
-import { RegisterComponent } from './component/register/register.component';
-import { ItemComponent } from './component/item/item.component';
-import { RestaurantsComponent } from './component/restaurants/restaurants.component';
-import { RestaurantSignupComponent } from './component/restaurant-signup/restaurant-signup.component';
-import { RestaurantRegistrationComponent } from './component/restaurant-registration/restaurant-registration.component';
-import { CustomerDataComponent } from './component/customer-data/customer-data.component';
-import { CustomerDataEditComponent } from './component/customer-data-edit/customer-data-edit.component';
-import { RegistereditemComponent } from './component/registereditem/registereditem.component';
-import { UpdateItemComponent } from './component/update-item/update-item.component';
+import { LoginComponent } from './component/homePage/login/login.component';
+import { RegisterComponent } from './component/homePage/register/register.component';
+import { ItemComponent } from './component/restaurantPage/item/item.component';
+import { RestaurantsComponent } from './component/restaurantPage/restaurants/restaurants.component';
+import { RestaurantSignupComponent } from './component/restaurantPage/restaurant-signup/restaurant-signup.component';
+import { RestaurantRegistrationComponent } from './component/restaurantPage/restaurant-registration/restaurant-registration.component';
+import { CustomerDataComponent } from './component/adminPage/customer-data/customer-data.component';
+import { CustomerDataEditComponent } from './component/customerPage/customer-data-edit/customer-data-edit.component';
+import { RegistereditemComponent } from './component/restaurantPage/registereditem/registereditem.component';
+import { UpdateItemComponent } from './component/restaurantPage/update-item/update-item.component';
 
-import { RestaurantDataComponent } from './component/restaurant-data/restaurant-data.component';
-import { RestaurantdataEditComponent } from './component/restaurantdata-edit/restaurantdata-edit.component';
-import { MenuComponent } from './component/menu/menu.component';
-import { HomeComponent } from './component/home/home.component';
-import { ErrorComponent } from './component/error/error.component';
+import { RestaurantDataComponent } from './component/adminPage/restaurant-data/restaurant-data.component';
+import { RestaurantdataEditComponent } from './component/restaurantPage/restaurantdata-edit/restaurantdata-edit.component';
+import { MenuComponent } from './component/homePage/menu/menu.component';
+import { HomeComponent } from './component/homePage/home/home.component';
+import { ErrorComponent } from './component/homePage/error/error.component';
 import { RouteGuardService } from './service/route-guard.service';
-import { HelpComponent } from './component/help/help.component';
-import { CartComponent } from './component/cart/cart.component';
-import { CustomerAddComponent } from './component/customer-add/customer-add.component';
-import { ContactUsComponent } from './component/contact-us/contact-us.component';
+import { HelpComponent } from './component/homePage/help/help.component';
+import { CartComponent } from './component/customerPage/cart/cart.component';
+import { CustomerAddComponent } from './component/adminPage/customer-add/customer-add.component';
+import { ContactUsComponent } from './component/homePage/contact-us/contact-us.component';
 
 
 const routes: Routes = [
-  // {path:'',component:RestaurantLoginComponent},//this is a default path
   {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent},
    {path:'logoutadmin',component:MenuComponent,canActivate:[RouteGuardService]},

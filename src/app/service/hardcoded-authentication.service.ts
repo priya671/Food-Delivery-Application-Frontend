@@ -8,11 +8,9 @@ export class HardcodedAuthenticationService {
   constructor() { }
 
   authenticate(email:string,password:string){
-
     sessionStorage.setItem("authenticateduser",email);
     return true;
-}
-
+  }
 
 authenticateAdmin(email:string,password:string){
   sessionStorage.setItem("authenticatedadmin",email);
@@ -28,16 +26,10 @@ authenticateAdmin(email:string,password:string){
     sessionStorage.removeItem('authenticateduser');
   }
 
-
-
-
-
-
   isAdminLoggedIn(){
     let admin = sessionStorage.getItem('authenticatedadmin');
     return !(admin==null);
   }
-
 
   Adminlogout(){
     sessionStorage.removeItem('authenticatedadmin');

@@ -1,0 +1,51 @@
+<div class="bg-img">
+  <div class="content">
+      <header>Add Item</header>
+      <form [formGroup]="registrationForm" (ngSubmit)="saveItem()">
+
+
+        <div class="form-group">
+          <label for="itemname" class="control-label">Item Name:</label>
+          <input required minlength="3" maxlength="25" type="text" id="itemname"
+              placeholder="Enter Item name" formControlName="itemname" name="itemname">
+        </div>
+          <span style="color: red;" *ngIf="itemname?.invalid && itemname?.touched">This field is required</span>
+          <br>
+
+          <div class="form-group">
+            <label for="itemcost" class="control-label">Item Cost:</label><br>
+            <input style="width: 170px;" required minlength="1" maxlength="4" min="1" max="2000" type="number" id="itemcost"
+            required placeholder="Enter your Item Cost" formControlName="itemcost" name="itemcost">
+          </div>
+          <span style="color: red;" *ngIf="itemcost?.invalid && itemcost?.touched">This field is required and should be between 1 to 2000</span>
+          <br>
+          
+
+
+          <div class="form-group">
+            <mat-radio-group style="float: left;clear: none; display: block; padding: 0px 1em 0px 8px;" 
+            aria-label="Select an option" class="radiolabel" formControlName="itemstatus" id="itemstatus" name="itemstatus">Item Status: <br>
+              <mat-radio-button style="float: left; clear: none; margin: 2px 0 0 2px;" 
+              value="Available" id="radio1" class="radiovalue" [checked]="true"> <div style="color: white;">Available</div></mat-radio-button>
+              <mat-radio-button style="float: left; clear: none; margin: 2px 0 0 2px;" 
+              value="Not Available" class="radiovalue"> <div style="color: white;">Not Available</div></mat-radio-button>
+            </mat-radio-group>
+            
+          </div>
+          <span style="color: red;" *ngIf="itemstatus?.invalid && itemstatus?.touched">This field is required</span>
+          <br>
+
+
+          <div class="form-group">
+            <label for="itemimage" class="radiolabel">Item Image:</label>
+            <input required minlength="3" type="text" id="itemimage"
+            require placeholder="Enter Image url" formControlName="itemimage" name="itemimage">
+          </div>
+          <span style="color: red;" *ngIf="itemimage?.invalid && itemimage?.touched">This field is required</span>
+          <br>
+
+          <button type="submit" [disabled]="!registrationForm.valid" class="btn btn-danger">Save Item</button> 
+          
+      </form>
+  </div>
+</div>

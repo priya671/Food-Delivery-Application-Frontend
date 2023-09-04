@@ -15,8 +15,7 @@ export class CustomerAddresssService {
   }
 
   public assignAddToCustomer(custId: number, addid: number) {
-    return this.http.get<CustomerAddress>(`${this.baseUrl}/customerAssigncustomeraddress/customer/${custId}/customerAddress/${addid
-      }`);
+    return this.http.get<CustomerAddress>(`${this.baseUrl}/customerAssigncustomeraddress/customer/${custId}/customerAddress/${addid}`);
   }
 
   public getCustomerAddById(id:number){
