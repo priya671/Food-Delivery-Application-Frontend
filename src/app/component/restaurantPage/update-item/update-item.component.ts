@@ -13,6 +13,8 @@ export class UpdateItemComponent  implements OnInit {
   id:number;
   rid:number;
   item:Item;
+  flag = false;
+  items : Item[] = [];
 
   constructor(private router:Router, private itemService:ItemServiceService, private route:ActivatedRoute){};
 
@@ -34,13 +36,39 @@ export class UpdateItemComponent  implements OnInit {
   updateItem(): void {
       this.id = this.route.snapshot.params['id'];
       this.rid = this.route.snapshot.params['rid'];
-      console.log(this.id)
+     
 
-      this.itemService.updateItemById(this.id,this.item).subscribe(
-        data =>{
-          this.router.navigate(['item',this.rid]);
+      this.itemService.getItemByRestId(this.rid).subscribe(
+        dataItem=>{
+          this.items=dataItem;
+          for(let i=0; i<this.items.length; i++){
+            if(this.items[i].itemname == this.item.itemname){
+              this.flag=true;
+              break;
+            }
+          }
+          console.log(this.flag);
+          if(this.flag==false){
+            this.itemService.updateItemById(this.id,this.item).subscribe(
+              data =>{
+                this.router.navigate(['item',this.rid]);
+                alert("Item Updated");
+              },
+  
+                  (error:any) => {
+                    console.log(error);
+                  }
+            )
+          }
+          else{
+            alert("Item is already registered");
+          }
+        },
+        (error:any)=>{
+          console.log(error);
         }
-      )
+        )
+        this.flag = false;
   };
 
 }

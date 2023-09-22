@@ -54,7 +54,7 @@ export class RestaurantDataComponent {
     console.log(restId);
     this.matDialog.open(PreviousOrderrestaurantComponent,{
       width:'120vh',
-      height:'90vh',
+      height:'80vh',
       data:restId
     }) 
   }

@@ -85,6 +85,7 @@ export class RegistereditemComponent implements OnInit {
         console.log(error);
       }
       )
+      this.flag = false;
   }
 
   get itemname() {

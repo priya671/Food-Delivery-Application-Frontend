@@ -232,8 +232,8 @@ export class CartComponent implements OnInit {
 
   showPreviusAdd(){
     this.dialog.open(CustomerAddComponent, {
-      height: '73vh',
-      width: '90vh',  
+      height: '75vh',
+      width: '120vh',  
     });
    
   }

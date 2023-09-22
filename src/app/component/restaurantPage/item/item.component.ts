@@ -88,7 +88,7 @@ export class ItemComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.matDialog.open(PreviousOrderrestaurantComponent,{
       width:'120vh',
-      height:'90vh',
+      height:'80vh', //80
       data:this.id
     })
   }
