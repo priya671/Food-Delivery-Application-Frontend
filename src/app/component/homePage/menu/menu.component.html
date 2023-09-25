@@ -49,6 +49,12 @@
           <li class="nav-item active" *ngIf="hardcodedAuthentication.isUserLoggedIn()" style="color: aliceblue; margin-top:15px ;" ><h2>
             Welcome, {{customer.customername}}!</h2>
           </li>
+          <li class="nav-item active" *ngIf="hardcodedAuthentication.isAdminLoggedIn()" style="color: aliceblue; margin-top:15px ;" ><h2>
+            Welcome, Admin!</h2>
+          </li>
+          <li class="nav-item active" *ngIf="hardcodedAuthentication.isRestLoggedIn()" style="color: aliceblue; margin-top:15px ;" ><h2>
+            Welcome, {{restaurant2.restname}}!</h2>
+          </li>
           <li><button *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn() && !hardcodedAuthentication.isRestLoggedIn()"  (click)="Openpopup()" mat-raised-button class="btn btn-outline-primary mr-10">Log in</button></li>
         </ul>
 

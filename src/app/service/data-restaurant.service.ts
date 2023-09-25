@@ -38,5 +38,9 @@ export class DataRestaurantService {
     return this.restaurantData;
   }
 
+  getRestaurantByEmail2(email:string){
+    return this.http.get<Restaurant>(`${this.baseUrl}/getRestaurantByEmail2/${email}`)
+  }
+
   
 }

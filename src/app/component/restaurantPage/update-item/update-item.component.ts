@@ -42,7 +42,7 @@ export class UpdateItemComponent  implements OnInit {
         dataItem=>{
           this.items=dataItem;
           for(let i=0; i<this.items.length; i++){
-            if(this.items[i].itemname == this.item.itemname){
+            if(this.items[i].itemname.toLowerCase().replace(/\s+/g, '') == this.item.itemname.toLowerCase().replace(/\s+/g, '')){
               this.flag=true;
               break;
             }

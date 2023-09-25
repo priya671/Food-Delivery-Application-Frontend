@@ -21,6 +21,8 @@ export class MenuComponent{
   customer:any;
   email1:any;
   isUserLoggedIn:boolean=false;
+  restaurant2:any;
+  isRestLoggedIn:boolean=false;
 
   constructor(private restaurantservice:DataRestaurantService,
     private customerService:CustomerService,
@@ -35,6 +37,15 @@ export class MenuComponent{
       console.log(customer);
       this.customer = customer;
     }) 
+
+    this.isRestLoggedIn=this.hardcodedAuthentication.isRestLoggedIn();
+    console.log(this.isRestLoggedIn);
+    this.email1=sessionStorage.getItem('authenticatedrest');
+    console.log(this.email1);
+    this.restaurantservice.getRestaurantByEmail2(this.email1).subscribe(restaurant2=>{
+      console.log(restaurant2);
+      this.restaurant2=restaurant2;
+    })
     
    }
 

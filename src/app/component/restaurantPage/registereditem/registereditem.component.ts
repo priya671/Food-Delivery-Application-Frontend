@@ -59,7 +59,7 @@ export class RegistereditemComponent implements OnInit {
       dataItem=>{
         this.items=dataItem;
         for(let i=0; i<this.items.length; i++){
-          if(this.items[i].itemname == this.registrationForm.value.itemname){
+          if(this.items[i].itemname.toLowerCase().replace(/\s+/g, '') == this.registrationForm.value.itemname?.toLowerCase().replace(/\s+/g, '')){
             this.flag=true;
             break;
           }
